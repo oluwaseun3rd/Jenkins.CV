@@ -1,15 +1,3 @@
-def notifyUsers(){
-    BRANCH_NAME = "${GIT_BRANCH.split('/').size() > 1 ? GIT_BRANCH.split('/')[1..-1].join('/') : GIT_BRANCH}"
-    if (currentBuild.currentResult == 'SUCCESS') {
-    def message = "@here rnpl image for ${BRANCH_NAME} <${env.BUILD_URL}|${currentBuild.displayName}> " +
-        "${currentBuild.currentResult} Image has been deployed to DockerHub"
-    slackSend(message: message, channel: '#jenkins-pipeline', color: 'good', token: 'slack-notification')
-} else {
-    def message = "@here Build <${env.BUILD_URL}|${currentBuild.displayName}> " +
-        "${currentBuild.currentResult} Image has not been deployed to DockerHub"
-    slackSend(message: message, channel: '#spleetafrica', color: 'danger', token: 'slack-notification')
-}
-}
 pipeline {
     agent {
       kubernetes {

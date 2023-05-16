@@ -27,10 +27,10 @@ pipeline {
         }
     }
     environment {
-        DEV_NAME = "backend-dev-rnpl"
-        PROD_NAME = "rnpl-prod"
+        DEV_NAME = "X"
+        PROD_NAME = "X"
         VERSION = "${env.BUILD_ID}-${env.GIT_COMMIT}"
-        IMAGE_REPO = "spleet"
+        IMAGE_REPO = "X"
     }
     stages {
        stage("Checkout code"){
